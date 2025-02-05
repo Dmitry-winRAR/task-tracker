@@ -5,13 +5,11 @@ const prioritySelect = document.getElementById('priority-select');
 const themeToggle = document.getElementById('theme-toggle');
 const filters = document.querySelectorAll('.filters button');
 
-// Загрузка задач из localStorage
 const loadTasks = () => {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks.forEach(task => addTaskToDOM(task.text, task.priority, task.completed));
 };
 
-// Сохранение задач в localStorage
 const saveTasks = () => {
     const tasks = Array.from(taskList.children).map(task => ({
         text: task.querySelector('span').textContent,
@@ -21,7 +19,6 @@ const saveTasks = () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 
-// Добавление задачи в DOM
 const addTaskToDOM = (text, priority = 'low', completed = false) => {
     const li = document.createElement('li');
     li.className = `task ${completed ? 'completed' : ''}`;
@@ -66,18 +63,16 @@ const addTaskToDOM = (text, priority = 'low', completed = false) => {
     taskList.appendChild(li);
 };
 
-// Добавление новой задачи
 addTaskButton.addEventListener('click', () => {
     const taskText = taskInput.value.trim();
     const taskPriority = prioritySelect.value;
     if (taskText) {
         addTaskToDOM(taskText, taskPriority);
-        taskInput.value = ''; // Очистка поля ввода
-        saveTasks(); // Сохранение задач
+        taskInput.value = ''; 
+        saveTasks(); 
     }
 });
 
-// Обработка фильтров
 filters.forEach(filterButton => {
     filterButton.addEventListener('click', () => {
         filters.forEach(button => button.classList.remove('active'));
@@ -101,10 +96,8 @@ filters.forEach(filterButton => {
     });
 });
 
-// Переключение темы
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark');
 });
 
-// Инициализация задач при загрузке страницы
 loadTasks();
