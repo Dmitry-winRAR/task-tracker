@@ -8,26 +8,26 @@
 </head>
 <body>
     <header>
-        <h1>Task Tracker</h1>
+        <h1>Отслеживание задач</h1>
     </header>
     <div class="container">
         <div class="filters">
-            <button data-filter="all" class="active">All</button>
-            <button data-filter="completed">Completed</button>
-            <button data-filter="pending">Pending</button>
+            <button data-filter="all" class="active">Все</button>
+            <button data-filter="completed">Завершено</button>
+            <button data-filter="pending">В процессе</button>
         </div>
         <div class="task-input">
             <input type="text" id="task-input" placeholder="Add a new task...">
             <select id="priority-select">
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
+                <option value="low">Низкая</option>
+                <option value="medium">Средняя</option>
+                <option value="high">Высокая</option>
             </select>
-            <button id="add-task">Add</button>
+            <button id="add-task">Создать</button>
         </div>
         <ul class="tasks" id="task-list"></ul>
     </div>
-    <button class="theme-toggle" id="theme-toggle">Toggle Theme</button>
+    <button class="theme-toggle" id="theme-toggle">Сменить тему</button>
     <script src="script.js"></script>
 </body>
 </html>
